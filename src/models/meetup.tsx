@@ -1,4 +1,7 @@
-export interface meetup {
+import Comment from "./Comment"
+import Point from "./Point"
+
+interface Meetup {
     name: string
     description: string
     genre: string
@@ -6,6 +9,11 @@ export interface meetup {
     date: string
     time: string
     maxGuests: number
-    userId: string
+    organiserId: string
+    comments: Array<Comment>
+    points: Array<Point>
+    guestList: Array<string>
     id: string
 }
+
+export default Meetup

@@ -1,8 +1,8 @@
 import {useState} from "react"
-import {meetup} from "../models/meetup"
+import Meetup from "../../models/Meetup"
 
 type Props = {
-    newMeetup: (item:meetup) => void
+    newMeetup: (item:Meetup) => void
 }
 
 const MeetupForm = (props:Props) => {
@@ -14,7 +14,7 @@ const MeetupForm = (props:Props) => {
     const [time, setTime] = useState<string>("")
     const [maxGuests, setMaxGuests] = useState<number>(0)
     const newMeetup = () => {
-        const meetup: meetup = {name, description, genre, location, date, time, maxGuests, userId: "test", id: "testar"}
+        const meetup: Meetup = {name, description, genre, location, date, time, maxGuests, organiserId: "test", id: "testar", comments: [], points: [], guestList: []}
         // hämta userId from local host
         // skapa id med uid
         props.newMeetup(meetup)

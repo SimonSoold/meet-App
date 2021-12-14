@@ -1,4 +1,7 @@
-export interface point {
+interface Point {
     point: number
     meetUpId: string
+    userId: String
 }
+
+export default Point
