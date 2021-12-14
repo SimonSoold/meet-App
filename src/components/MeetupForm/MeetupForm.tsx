@@ -1,11 +1,10 @@
 import {useState} from "react"
 import Meetup from "../../models/Meetup"
+import { useDispatch } from 'react-redux'
+import { actions } from '../../features/meetups'
 
-type Props = {
-    newMeetup: (item:Meetup) => void
-}
-
-const MeetupForm = (props:Props) => {
+const MeetupForm = () => {
+    const dispatch = useDispatch()
     const [name, setName] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const [genre, setGenre] = useState<string>("")
@@ -17,7 +16,7 @@ const MeetupForm = (props:Props) => {
         const meetup: Meetup = {name, description, genre, location, date, time, maxGuests, organiserId: "test", id: "testar", comments: [], points: [], guestList: []}
         // hämta userId from local host
         // skapa id med uid
-        props.newMeetup(meetup)
+        dispatch(actions.addMeetup(meetup))
     }
     return (
         <div className="meetupForm">

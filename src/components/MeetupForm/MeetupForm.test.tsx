@@ -1,17 +1,21 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react'
 import { mount } from 'enzyme';
+import { Provider } from 'react-redux'
+import { store } from '../../store'
 
 import MeetupForm from "./MeetupForm"
+import App from "../../App"
 
 describe("MeetupForm", () => {
     it("renders MeetupForm without errors (smoke test)", () => {
-      render(<MeetupForm newMeetup={(item) => console.log(item)} />)
+      render(<Provider store={store}> <MeetupForm /> </Provider>)
     })
-    it("returns a new meetup object on click", () => {
-      let testObject = {}
-      const wrapper = mount(<MeetupForm newMeetup={(item) => testObject = item} />)
+    it("creates new meetup on click", () => {
+      const wrapper = mount(<Provider store={store}> <App /> </Provider>)
+      const navigateButton = wrapper.find('[data-test="header-create-meetup"]')
+      navigateButton.simulate('click')
       const inputs = wrapper.find('[data-test="meetup-form-input"]')
-      const button = wrapper.find('[data-test="meetup-form-button"]')
+      const formButton = wrapper.find('[data-test="meetup-form-button"]')
   
       inputs.at(0).simulate('change', { target: { value: 'Grillkorvs fest' } } )
       inputs.at(1).simulate('change', { target: { value: 'Grattis korv till gänget' } } )
@@ -20,10 +24,9 @@ describe("MeetupForm", () => {
       inputs.at(4).simulate('change', { target: { value: '24 februari' } } )
       inputs.at(5).simulate('change', { target: { value: '18:00' } } )
       inputs.at(6).simulate('change', { target: { value: 2 } } )
-      button.simulate('click')
-      const keys = Object.keys(testObject)
-      expect(keys[0]).toBe('name')
-      expect(keys[8]).toBe('id')
+      formButton.simulate('click')
+      const listItems = wrapper.find('.meetupList .meetupListItem')
+      expect(listItems.length).toBe(6)
     })
   })
   

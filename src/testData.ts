@@ -12,7 +12,7 @@ export const meetupList: Meetup[] = [
         "organiserId": "test",
         "id": "testar1",
         "comments": [],
-        "points": [],
+        "points": [{"point":4, "userId":"test"}, {"point":3, "userId":"test3"}, {"point":5, "userId":"test2"}],
         "guestList": []
 
     },

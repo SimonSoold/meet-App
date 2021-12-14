@@ -23,7 +23,7 @@ function App() {
     main = <MeetupCard meetup={meetup}/>
   } 
   else if (view === AppPanel.NEW_MEETUP) {
-    main = <MeetupForm newMeetup={(item) => console.log(item)} />
+    main = <MeetupForm />
   }
   const viewMeetup = (meetup:Meetup) => {
     setMeetup(meetup)
@@ -38,7 +38,7 @@ function App() {
             main
           }
         </div>
-          <MeetupList meetupList={meetupList} view={(meetup) => viewMeetup(meetup)}/>
+          <MeetupList view={(meetup) => viewMeetup(meetup)}/>
       </main>
       <footer>
 

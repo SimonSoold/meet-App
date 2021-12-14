@@ -42,12 +42,15 @@ main {
   display: flex;
   justify-content: space-between;
   background: lightblue;
+  height: 80%;
 }
 .meetupList {
+  height: 100%;
   width: 30%;
   padding: 0.8rem;
   background: grey;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 .meetupListItem {
   display: flex;
@@ -88,7 +91,8 @@ main {
   width: 30%;
 }
 footer {
-  height: 8%;
+  flex-grow: 1;
+  max-height: 8%;
   background: black;
 }
 label {

@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 
 type Props = {
-    meetupList: Array<Meetup>,
     view: (item:Meetup) => void
 }
 
-const MeetupList = ({meetupList, view}:Props) => {
+const MeetupList = ({view}:Props) => {
     const searchString = useSelector((state: RootState) => state.searchString)
 	const meetups = useSelector((state: RootState) => state.meetups)
 	const filteredData = meetups.filter(meetup => meetup.name.toLowerCase().includes(searchString.toLowerCase()))

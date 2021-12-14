@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react';
+
 import MeetupCard from "./MeetupCard"
+
 import {meetupList} from "../../testData"
 
 describe("MeetUpCard", () => {

@@ -27,8 +27,8 @@ const MeetupCard = ({meetup}:Props) => {
             <p>{meetup.location}</p>
             <p>{meetup.date}</p>
             <p>{meetup.time}</p>
-            <p>{meetup.maxGuests}</p>
-            <p>{point}</p>
+            <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
+            <p>{point}/5 ({meetup.points.length} votes)</p>
         </article>
     )
 }
