@@ -37,7 +37,7 @@ header > div > label > input {
   margin-top: 0.8rem;
 }
 main {
-  flex-grow: 6;
+  flex-grow: 1;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -78,9 +78,17 @@ main {
   height: 100%;
   width: 100%;
   background: white;
+  padding: 0.8rem;
+  box-sizing: border-box;
+}
+.meetupForm > * {
+  margin-bottom: 0.8rem;
+}
+.meetupForm > label {
+  width: 30%;
 }
 footer {
-  flex-grow: 1;
+  height: 8%;
   background: black;
 }
 label {

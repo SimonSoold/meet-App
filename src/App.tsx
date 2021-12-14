@@ -31,7 +31,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Header />
+      <Header view={() => setView(AppPanel.NEW_MEETUP)} />
       <main>
         <div className="meetupContainer">
           {

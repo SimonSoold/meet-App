@@ -4,7 +4,7 @@ import Header from "./Header"
 
 describe("Header", () => {
     it("renders h1 in App without errors (smoke test)", () => {
-        const wrapper = mount(<Header />);
+        const wrapper = mount(<Header view={() => console.log("view")}/>);
         const h1 = wrapper.find('h1').at(0)
         expect(h1.text()).toBe('Meetup')
     })
