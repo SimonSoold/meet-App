@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+button {
+  cursor: pointer;
+}
 .App {
   height: 100vh;
   display: flex;
@@ -96,11 +99,18 @@ main {
 .pointButtons > button {
   padding: 0.8rem;
   margin-right: 0.4rem;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 50%;
+  box-sizing: border-box;
 }
 .red {
   background: red;
+}
+.pointButtons > button:hover {
+  border: 1px solid red;
+}
+.pointButtons > .red:hover {
+  border: 1px solid black;
 }
 footer {
   flex-grow: 1;
