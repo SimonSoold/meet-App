@@ -1,4 +1,40 @@
 import Meetup from "./models/Meetup"
+import {UserData} from "./models/User"
+
+export const getUsers = () => {
+    return userList.map(user => {
+        return {name: user.name, id: user.id}
+    })
+}
+
+export const authUser = (name:string, password:string) => {
+    const user = userList.find(item => item.name === name)
+    if (user && user.password === password && user.name === name) return user
+    return null
+}
+
+const userList: UserData[] = [
+    {
+        "name": "Anders",
+        "password": "bananKorv2",
+        "id": "test"
+    },
+    {
+        "name": "Göran",
+        "password": "bananKorv2",
+        "id": "test1"
+    },
+    {
+        "name": "Kurt",
+        "password": "bananKorv2",
+        "id": "test2"
+    },
+    {
+        "name": "Sven",
+        "password": "bananKorv2",
+        "id": "test3"
+    }
+]
 
 export const meetupList: Meetup[] = [
     {
@@ -14,7 +50,6 @@ export const meetupList: Meetup[] = [
         "comments": [{"name": "Vad fint", "description": "Hur många korvar får man?", "userId": "test2"}, {"name": "Visst va!", "description": "Man får 2 korvar", "userId": "test"}],
         "points": [{"point":4, "userId":"test"}, {"point":3, "userId":"test3"}, {"point":5, "userId":"test2"}],
         "guestList": []
-
     },
     {
         "name": "Barnkalas",

@@ -9,6 +9,18 @@ import App from "../../App"
 describe("MeetupForm", () => {
     it("renders MeetupForm without errors (smoke test)", () => {
       render(<Provider store={store}> <MeetupForm /> </Provider>)
+      const button = screen.getByText(/Create Event/i);
+      expect(button).toBeInTheDocument();
+    })
+    it("login on Click", () => {
+      const wrapper = mount(<Provider store={store}> <App /> </Provider>)
+      const inputs = wrapper.find('[data-test="login-form-input"]')
+      const button = wrapper.find('[data-test="login-form-button"]')
+      inputs.at(0).simulate('change', { target: { value: 'Anders' } } )
+      inputs.at(1).simulate('change', { target: { value: 'bananKorv2' } } )
+      button.simulate('click')
+      const headerButton = wrapper.find('[data-test="header-create-meetup"]')
+      expect(headerButton.text()).toBe('create meetup')
     })
     it("creates new meetup on click", () => {
       const wrapper = mount(<Provider store={store}> <App /> </Provider>)

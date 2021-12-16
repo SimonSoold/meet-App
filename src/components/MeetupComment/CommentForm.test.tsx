@@ -11,6 +11,8 @@ import {meetupList} from "../../testData"
 describe("MeetupForm", () => {
     it("renders MeetupForm without errors (smoke test)", () => {
       render(<Provider store={store}> <CommentForm id={meetupList[0].name}/> </Provider>)
+      const button = screen.getByText(/Comment/i);
+      expect(button).toBeInTheDocument();
     })
     it("creates new comment on click", () => {
       const wrapper = mount(<Provider store={store}> <App /> </Provider>)
