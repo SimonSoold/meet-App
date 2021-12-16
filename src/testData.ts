@@ -11,7 +11,7 @@ export const meetupList: Meetup[] = [
         "maxGuests": 4,
         "organiserId": "test",
         "id": "testar1",
-        "comments": [],
+        "comments": [{"name": "Vad fint", "description": "Hur många korvar får man?", "userId": "test2"}, {"name": "Visst va!", "description": "Man får 2 korvar", "userId": "test"}],
         "points": [{"point":4, "userId":"test"}, {"point":3, "userId":"test3"}, {"point":5, "userId":"test2"}],
         "guestList": []
 

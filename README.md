@@ -1,4 +1,4 @@
-Som arrangör vill jag kunna skapa ett event
+- Som arrangör vill jag kunna skapa ett event
 som arrangör vill jag kunna kommentera ett event för att svara på deltagnas frågor
 som arangör vill jag kunna ändra/ta bort ett event
 som arrangör vill jag kunna delta i ett event
@@ -7,9 +7,9 @@ som deltagare vill jag kunna kommentera ett event för att kunna fråga arrangö
 som deltagare vill jag kunna ge betyg på ett event
 som deltagare vill jag kunna delta i ett event
 
-som användare vill jag kunna se en lista över meetups
-som användare vill jag kunna navigera till vald meetup och se ytterliggare information
-som användare vill jag kunna filtrera meetups 
+- som användare vill jag kunna se en lista över meetups
+- som användare vill jag kunna navigera till vald meetup och se ytterliggare information
+- som användare vill jag kunna filtrera meetups 
 som användare vill jag kunna söka på tema
 
 version 2: 

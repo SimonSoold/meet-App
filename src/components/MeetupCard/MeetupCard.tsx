@@ -1,12 +1,13 @@
 import {useState, useEffect} from "react"
 
-import Meetup from "../../models/Meetup"
+import CommentForm from "../MeetupComment/CommentForm"
+import CommentList from "../MeetupComment/CommentList"
 
-type Props = {
-    meetup: Meetup
-}
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
-const MeetupCard = ({meetup}:Props) => {
+const MeetupCard = () => {
+    const meetup = useSelector((state: RootState) => state.meetups.list[state.meetups.index])
     const [point, setPoint] = useState<number>(0)
     const average = () => {
         let total = 0
@@ -18,7 +19,7 @@ const MeetupCard = ({meetup}:Props) => {
     }
     useEffect(() => {
         average()
-    });
+    })
     return (
         <article className="meetupCard">
             <h3>{meetup.name}</h3>
@@ -29,6 +30,8 @@ const MeetupCard = ({meetup}:Props) => {
             <p>{meetup.time}</p>
             <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
             <p>{point}/5 ({meetup.points.length} votes)</p>
+            <CommentForm id={meetup.id} />
+            <CommentList commentList={meetup.comments} />
         </article>
     )
 }

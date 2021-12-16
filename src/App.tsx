@@ -1,14 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Header from "./components/Header"
 
 import MeetupCard from "./components/MeetupCard/MeetupCard"
 import MeetupForm from "./components/MeetupForm/MeetupForm"
 import MeetupList from "./components/MeetupList/MeetupList"
-
-import Meetup from "./models/Meetup"
-
-import {meetupList} from "./testData"
 
 enum AppPanel {
   VIEW_MEETUP = "meetup",
@@ -17,17 +13,12 @@ enum AppPanel {
 
 function App() {
   const [view, setView] = useState<AppPanel>(AppPanel.VIEW_MEETUP)
-  const [meetup, setMeetup] = useState<Meetup>(meetupList[0])
   let main = null
   if (view === AppPanel.VIEW_MEETUP) {
-    main = <MeetupCard meetup={meetup}/>
+    main = <MeetupCard />
   } 
   else if (view === AppPanel.NEW_MEETUP) {
     main = <MeetupForm />
-  }
-  const viewMeetup = (meetup:Meetup) => {
-    setMeetup(meetup)
-    setView(AppPanel.VIEW_MEETUP)
   }
   return (
     <div className="App">
@@ -38,7 +29,7 @@ function App() {
             main
           }
         </div>
-          <MeetupList view={(meetup) => viewMeetup(meetup)}/>
+        <MeetupList view={() => setView(AppPanel.VIEW_MEETUP)}/>
       </main>
       <footer>
 
