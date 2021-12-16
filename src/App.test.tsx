@@ -18,5 +18,12 @@ describe("App", () => {
     const formButton = wrapper.find('[data-test="meetup-form-button"]').at(0)
     expect(formButton.text()).toBe('Create Event')
   })
+  it("navigates to Meetup and changes index for meetupCard onClick", () => {
+    const wrapper = mount(<Provider store={store}> <App /> </Provider>)
+    const button = wrapper.find('[data-test="meetup-item-button"]').at(1)
+    button.simulate('click')
+    const h3 = wrapper.find("h3")
+    expect(h3.text()).toBe('Barnkalas')
+  })
 })
 

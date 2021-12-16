@@ -2,11 +2,16 @@ import { createReducer, createAction } from '@reduxjs/toolkit'
 
 import Meetup from '../models/Meetup'
 import Comment from "../models/Comment"
+import Point from "../models/Point"
 import {meetupList} from "../testData"
 
-type commentPayload = {
+type CommentPayload = {
 	id: string,
 	comment: Comment
+}
+type PointPayload = {
+	point: Point,
+	id: string
 }
 
 type state = {
@@ -15,14 +20,16 @@ type state = {
 }
 
 const addMeetup = createAction<Meetup>('add new meetup')
-const addComment = createAction<commentPayload>('add new comment')
+const addComment = createAction<CommentPayload>('add new comment')
+const addPoint = createAction<PointPayload>('add point')
 const changeIndex = createAction<number>("change index")
 
 const initialState:state = {list:meetupList, index: 0}
 
 const actions = {
 	addMeetup,
-	addComment, 
+	addComment,
+	addPoint, 
 	changeIndex
 }
 
@@ -34,6 +41,15 @@ const reducer = createReducer(initialState, (builder) => {
 	.addCase(addComment, (state, action) => {
 		state.list.map(item => {
 			if (item.id === action.payload.id) item.comments.push(action.payload.comment)
+			return item
+		})
+	})
+	.addCase(addPoint, (state, action) => {
+		state.list.map(item => {
+			if (item.id === action.payload.id) {
+				const index = item.points.findIndex(item => item.userId === action.payload.point.userId)
+				index ? item.points[index] = action.payload.point : item.points.push(action.payload.point)
+			}
 			return item
 		})
 	})

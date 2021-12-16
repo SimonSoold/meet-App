@@ -84,11 +84,23 @@ main {
   padding: 0.8rem;
   box-sizing: border-box;
 }
-.meetupForm > * {
+.meetupForm > *, .commentForm > * {
   margin-bottom: 0.8rem;
 }
-.meetupForm > label {
+.meetupForm > label, .commentForm > label {
   width: 30%;
+}
+.pointContainer > * {
+  margin-bottom: 0.4rem;
+}
+.pointButtons > button {
+  padding: 0.8rem;
+  margin-right: 0.4rem;
+  border: none;
+  border-radius: 50%;
+}
+.red {
+  background: red;
 }
 footer {
   flex-grow: 1;

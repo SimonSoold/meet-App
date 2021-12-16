@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 
 import CommentForm from "../MeetupComment/CommentForm"
 import CommentList from "../MeetupComment/CommentList"
+import MeetupPoint from "./MeetupPoint"
 
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
@@ -29,7 +30,8 @@ const MeetupCard = () => {
             <p>{meetup.date}</p>
             <p>{meetup.time}</p>
             <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
-            <p>{point}/5 ({meetup.points.length} votes)</p>
+            <p data-test="meetupCard-point">{point}/5 ({meetup.points.length} votes)</p>
+            <MeetupPoint id={meetup.id}/>
             <CommentForm id={meetup.id} />
             <CommentList commentList={meetup.comments} />
         </article>

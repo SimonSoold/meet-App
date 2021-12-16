@@ -7,13 +7,13 @@ type Props = {
     id: string
 }
 
-const CommentForm = (props: Props) => {
+const CommentForm = ({id}: Props) => {
     const dispatch = useDispatch()
     const [name, setName] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const newComment = () => {
         const comment: Comment = {name, description, userId: "test"}
-        dispatch(actions.addComment({id: props.id, comment}))
+        dispatch(actions.addComment({id: id, comment}))
         setName("")
         setDescription("")
     }

@@ -1,10 +1,11 @@
 - Som arrangör vill jag kunna skapa ett event
-som arrangör vill jag kunna kommentera ett event för att svara på deltagnas frågor
+- som arrangör vill jag kunna kommentera ett event för att svara på deltagnas frågor
 som arangör vill jag kunna ändra/ta bort ett event
 som arrangör vill jag kunna delta i ett event
 
-som deltagare vill jag kunna kommentera ett event för att kunna fråga arrangör och prata ihops sig med andra deltagare
-som deltagare vill jag kunna ge betyg på ett event
+- som deltagare vill jag kunna kommentera ett event för att kunna fråga arrangör och prata ihops sig med andra deltagare
+- som deltagare vill jag kunna ge betyg på ett event 
+// blockera för inloggad arrangör
 som deltagare vill jag kunna delta i ett event
 
 - som användare vill jag kunna se en lista över meetups
