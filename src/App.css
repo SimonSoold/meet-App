@@ -112,6 +112,12 @@ main {
 .pointButtons > .red:hover {
   border: 1px solid black;
 }
+.authorComment {
+  background: blue;
+}
+.yourComment {
+  background: green;
+}
 footer {
   flex-grow: 1;
   max-height: 8%;
