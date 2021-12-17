@@ -1,5 +1,9 @@
-import Meetup from "../../models/Meetup"
+import { actions } from 'features/view'
+import { useDispatch } from 'react-redux'
 
+import AppPanel from "models/AppPanel"
+
+import Meetup from "models/Meetup"
 
 type Props = {
     meetup: Meetup
@@ -7,6 +11,11 @@ type Props = {
 }
 
 const MeetupListItem = ({meetup, view}:Props) => {
+    const dispatch = useDispatch()
+    const viewItem = () => {
+        view()
+        dispatch(actions.view(AppPanel.VIEW_MEETUP))
+    }
     return (
         <li className="meetupListItem">
             <h4>{meetup.name}</h4>
@@ -14,7 +23,7 @@ const MeetupListItem = ({meetup, view}:Props) => {
             <p>{meetup.time}</p>
             <button 
             data-test="meetup-item-button"
-            onClick={view}
+            onClick={viewItem}
             >read more
             </button>
         </li>

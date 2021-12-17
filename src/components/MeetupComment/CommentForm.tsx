@@ -1,7 +1,8 @@
 import {useState} from "react"
-import Comment from "../../models/Comment"
 import { useDispatch } from 'react-redux'
-import { actions } from '../../features/meetups'
+import { actions } from 'features/meetups'
+
+import Comment from "models/Comment"
 
 type Props = {
     id: string

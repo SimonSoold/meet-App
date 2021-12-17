@@ -1,6 +1,8 @@
-import CommentItem from "./CommentItem"
-import Comment from "../../models/Comment"
 import {useEffect} from "react"
+
+import CommentItem from "./CommentItem"
+
+import Comment from "models/Comment"
 
 type Props = {
     commentList: Array<Comment>

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux'
-import { store } from '../../store'
+import { store } from 'store'
 
 import MeetupForm from "./MeetupForm"
-import App from "../../App"
+import App from "App"
 
 describe("MeetupForm", () => {
     it("renders MeetupForm without errors (smoke test)", () => {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { actions } from '../features/users'
+import { actions } from 'features/users'
+
 const Login = () => {
     const dispatch = useDispatch()
     const [name, setName] = useState<string>("")
@@ -9,7 +10,7 @@ const Login = () => {
         dispatch(actions.loginUser({name, password}))
     }
     return (
-        <div className="loginForm">
+        <>
             <label>
                 name
                 <input 
@@ -38,7 +39,7 @@ const Login = () => {
             >
                 login    
             </button>
-        </div>
+        </>
     )
 }
 

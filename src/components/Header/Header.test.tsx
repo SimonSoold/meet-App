@@ -1,8 +1,9 @@
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux'
-import { store } from '../store'
+import { store } from 'store'
+
 import Header from "./Header"
-import App from "../App"
+import App from "App"
 
 
 describe("Header", () => {

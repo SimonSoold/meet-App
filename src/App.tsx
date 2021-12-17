@@ -1,18 +1,16 @@
-import { useState } from 'react';
-import './App.css';
-import Header from "./components/Header"
+import 'App.css';
+import { useSelector } from 'react-redux'
+import { RootState } from 'store'
 
-import MeetupCard from "./components/MeetupCard/MeetupCard"
-import MeetupForm from "./components/MeetupForm/MeetupForm"
-import MeetupList from "./components/MeetupList/MeetupList"
+import Header from "components/Header/Header"
+import MeetupCard from "components/MeetupCard/MeetupCard"
+import MeetupForm from "components/MeetupForm/MeetupForm"
+import MeetupList from "components/MeetupList/MeetupList"
 
-enum AppPanel {
-  VIEW_MEETUP = "meetup",
-  NEW_MEETUP = "new"
-}
+import AppPanel from 'models/AppPanel';
 
 function App() {
-  const [view, setView] = useState<AppPanel>(AppPanel.VIEW_MEETUP)
+  const view = useSelector((state: RootState) => state.view.current)
   let main = null
   if (view === AppPanel.VIEW_MEETUP) {
     main = <MeetupCard />
@@ -22,14 +20,14 @@ function App() {
   }
   return (
     <div className="App">
-      <Header view={() => setView(AppPanel.NEW_MEETUP)} />
+      <Header />
       <main>
         <div className="meetupContainer">
           {
             main
           }
         </div>
-        <MeetupList view={() => setView(AppPanel.VIEW_MEETUP)}/>
+        <MeetupList />
       </main>
       <footer>
 

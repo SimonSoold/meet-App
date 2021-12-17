@@ -1,7 +1,8 @@
 import {useState} from "react"
-import Meetup from "../../models/Meetup"
 import { useDispatch } from 'react-redux'
-import { actions } from '../../features/meetups'
+import { actions } from 'features/meetups'
+
+import Meetup from "models/Meetup"
 
 const MeetupForm = () => {
     const dispatch = useDispatch()

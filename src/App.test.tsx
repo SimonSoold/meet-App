@@ -1,4 +1,3 @@
-//import { render, screen } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux'
 import { store } from './store'

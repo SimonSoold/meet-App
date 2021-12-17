@@ -1,6 +1,7 @@
-import Comment from "../../models/Comment"
 import { useSelector } from 'react-redux'
-import { RootState } from '../../store'
+import { RootState } from 'store'
+
+import Comment from "models/Comment"
 
 type Props = {
     comment: Comment 

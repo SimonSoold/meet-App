@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux'
+import { store } from 'store'
 
 import CommentList from "./CommentList"
 
-import {meetupList} from "../../testData"
+import {meetupList} from "testData"
 
-import { Provider } from 'react-redux'
-import { store } from '../../store'
 
 describe("CommentList", () => {
     it("renders h5 in CommentItem without errors (smoke test)", () => {

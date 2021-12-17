@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { actions } from '../../features/meetups'
-import { useState, useEffect } from 'react'
+import { actions } from 'features/meetups'
+import { useState } from 'react'
 
 type Props = {
     id: string
