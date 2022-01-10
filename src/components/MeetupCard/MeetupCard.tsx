@@ -17,6 +17,7 @@ const MeetupCard = () => {
     const user = useSelector((state: RootState) => state.users.user)
     const [point, setPoint] = useState<number>(0)
     let pointVote = null
+    let comment = null
     const average = () => {
         let total = 0
         if (meetup.points.length > 0) {
@@ -36,6 +37,11 @@ const MeetupCard = () => {
             edit metup
         </button>)
     }
+    if (user) {
+        comment = <CommentForm id={meetup.id} />
+    } else {
+        comment = (<></>)
+    }
     useEffect(() => {
         average()
     })
@@ -50,7 +56,7 @@ const MeetupCard = () => {
             <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
             <p data-test="meetupCard-point">{point}/5 ({meetup.points.length} votes)</p>
             {pointVote}
-            <CommentForm id={meetup.id} />
+            {comment}
             <CommentList commentList={meetup.comments} />
         </article>
     )
