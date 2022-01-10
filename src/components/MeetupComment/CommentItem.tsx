@@ -11,10 +11,10 @@ const CommentItem = ({comment}:Props) => {
     const user = useSelector((state: RootState) => state.users.user)
     const meetup = useSelector((state: RootState) => state.meetups.list[state.meetups.index])
     const checkAuthor = () => {
-        if (user && comment.userId === user.id) {
-            return " yourComment"
-        } else if (comment.userId === meetup.organiserId) {
+        if (comment.userId === meetup.organiserId) {
             return " authorComment"
+        } else if (user && comment.userId === user.id) {
+            return " yourComment"
         } else {
             return " userComment"
         }

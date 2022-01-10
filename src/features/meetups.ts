@@ -24,6 +24,7 @@ const addComment = createAction<CommentPayload>('add new comment')
 const addPoint = createAction<PointPayload>('add point')
 const changeIndex = createAction<number>("change index")
 const deleteMeetup = createAction<Meetup>("delete meetup")
+const editMeetup = createAction<Meetup>("edit meetup")
 
 const initialState:state = {list:meetupList, index: 0}
 
@@ -32,7 +33,8 @@ const actions = {
 	addComment,
 	addPoint, 
 	changeIndex,
-	deleteMeetup
+	deleteMeetup,
+	editMeetup,
 }
 
 const reducer = createReducer(initialState, (builder) => {
@@ -60,6 +62,10 @@ const reducer = createReducer(initialState, (builder) => {
 	})
 	.addCase(deleteMeetup, (state, action) => {
 		state.list = state.list.filter(item => item.id !== action.payload.id)
+	})
+	.addCase(editMeetup, (state, action) => {
+		const index = state.list.findIndex(item => item.id === action.payload.id)
+		state.list[index] = action.payload
 	})
 	.addDefaultCase((state, action) => {})
 })

@@ -6,7 +6,7 @@ import MeetupList from "./MeetupList"
 
 describe("MeetUpList", () => {
     it("renders h3 in MeetupCard in MeetUpList without errors (smoke test)", () => {
-      render(<Provider store={store}> <MeetupList view={() => console.log("view")}/> </Provider>)
+      render(<Provider store={store}> <MeetupList /> </Provider>)
       const h3 = screen.getByText(/Grillkorvsfest/i);
       expect(h3).toBeInTheDocument();
     })

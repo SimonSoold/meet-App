@@ -2,11 +2,13 @@ import {useState, useEffect} from "react"
 import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 import { useDispatch } from 'react-redux'
-import { actions } from 'features/meetups'
+import { actions } from 'features/view'
 
 import CommentForm from "../MeetupComment/CommentForm"
 import CommentList from "../MeetupComment/CommentList"
-import MeetupPoint from "./MeetupPoint"
+import MeetupPoint from "../MeetupPoint/MeetupPoint"
+
+import AppPanel from "models/AppPanel"
 
 
 const MeetupCard = () => {
@@ -14,6 +16,7 @@ const MeetupCard = () => {
     const meetup = useSelector((state: RootState) => state.meetups.list[state.meetups.index])
     const user = useSelector((state: RootState) => state.users.user)
     const [point, setPoint] = useState<number>(0)
+    let pointVote = null
     const average = () => {
         let total = 0
         if (meetup.points.length > 0) {
@@ -22,10 +25,16 @@ const MeetupCard = () => {
         }
         setPoint(total)
     }
-    const deleteMeetup = () => {
-        if (user) {
-            dispatch(actions.deleteMeetup(meetup))
-        }
+    if (user && user.id !== meetup.organiserId) {
+        pointVote = <MeetupPoint id={meetup.id}/>
+    } else if (user && user.id === meetup.organiserId) {
+        pointVote = (            
+        <button
+        data-test="meetupCard-edit-meetup"
+        onClick={() => dispatch(actions.view(AppPanel.EDIT_MEETUP))}
+        >
+            edit metup
+        </button>)
     }
     useEffect(() => {
         average()
@@ -40,7 +49,7 @@ const MeetupCard = () => {
             <p>{meetup.time}</p>
             <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
             <p data-test="meetupCard-point">{point}/5 ({meetup.points.length} votes)</p>
-            {user && user.id !== meetup.organiserId ? <MeetupPoint id={meetup.id}/> : <button data-test="meetup-delete-button" onClick={deleteMeetup}>cancel meetup</button>}
+            {pointVote}
             <CommentForm id={meetup.id} />
             <CommentList commentList={meetup.comments} />
         </article>

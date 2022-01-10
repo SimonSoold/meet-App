@@ -17,6 +17,7 @@ li {
 }
 header {
   height: fit-content;
+  min-height: 25%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -45,7 +46,7 @@ main {
   display: flex;
   justify-content: space-between;
   background: lightblue;
-  height: 80%;
+  min-height: 75%;
 }
 .meetupList {
   height: 100%;
@@ -80,7 +81,7 @@ main {
 .meetupCard > * {
   margin: 0.2rem;
 }
-.meetupCard, .meetupForm {
+.meetupCard, .meetupForm, .meetupEdit {
   height: 100%;
   width: 100%;
   background: white;
@@ -90,7 +91,7 @@ main {
 .meetupForm > *, .commentForm > * {
   margin-bottom: 0.8rem;
 }
-.meetupForm > label, .commentForm > label {
+.meetupForm > label, .commentForm > label, .commentList  {
   width: 30%;
 }
 .pointContainer > * {
@@ -112,11 +113,18 @@ main {
 .pointButtons > .red:hover {
   border: 1px solid black;
 }
+.commentItem {
+  margin-bottom: 0.4rem;
+  padding: 0.4rem;
+}
 .authorComment {
-  background: blue;
+  border-left: 4px solid blue;
 }
 .yourComment {
-  background: green;
+  border-left: 4px solid green;
+}
+.userComment {
+  border-left: 4px solid black;
 }
 footer {
   flex-grow: 1;

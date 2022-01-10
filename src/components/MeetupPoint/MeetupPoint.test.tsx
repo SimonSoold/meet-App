@@ -2,7 +2,6 @@ import { mount } from 'enzyme';
 import { Provider } from 'react-redux'
 import { store } from 'store'
 
-import MeetupCard from "./MeetupCard"
 import App from "App"
 
 describe("MeetUpPoint", () => {
