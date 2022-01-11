@@ -18,7 +18,7 @@ describe("Header", () => {
         expect(headerButton.text()).toBe('create meetup')
     })
     it("renders h1 in App without errors (smoke test)", () => {
-        const wrapper = mount(<Provider store={store}> <Header view={() => console.log("view")}/> </Provider>);
+        const wrapper = mount(<Provider store={store}> <Header /> </Provider>);
         const h1 = wrapper.find('h1').at(0)
         expect(h1.text()).toBe('Meetup')
     })

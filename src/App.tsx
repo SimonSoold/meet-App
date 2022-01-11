@@ -4,9 +4,9 @@ import { RootState } from 'store'
 
 import Header from "components/Header/Header"
 import MeetupCard from "components/MeetupCard/MeetupCard"
-import MeetupForm from "components/MeetupForm/MeetupForm"
+import MeetupForm from "components/MeetupCard/MeetupForm"
 import MeetupList from "components/MeetupList/MeetupList"
-import MeetupEdit from "components/MeetupEdit/MeetupEdit"
+import MeetupEdit from "components/MeetupCard/MeetupEdit"
 
 import AppPanel from 'models/AppPanel';
 

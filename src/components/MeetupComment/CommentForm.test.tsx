@@ -16,17 +16,6 @@ describe("MeetupForm", () => {
     })
     it("creates new comment on click", () => {
       const wrapper = mount(<Provider store={store}> <App /> </Provider>)
-      const inputs = wrapper.find('[data-test="comment-form-input"]')
-      const formButton = wrapper.find('[data-test="comment-form-button"]')
-  
-      inputs.at(0).simulate('change', { target: { value: 'Grillkorvs fest' } } )
-      inputs.at(1).simulate('change', { target: { value: 'Grattis korv till gänget' } } )
-      formButton.simulate('click')
-      const listItems = wrapper.find('.commentList .commentItem')
-      expect(listItems.length).toBe(3)
-    })
-    it("creates new comment with authorComment class if auhtor", () => {
-      const wrapper = mount(<Provider store={store}> <App /> </Provider>)
       let inputs = wrapper.find('[data-test="login-form-input"]')
       const button = wrapper.find('[data-test="login-form-button"]')
       inputs.at(0).simulate('change', { target: { value: 'Anders' } } )
@@ -36,12 +25,25 @@ describe("MeetupForm", () => {
       inputs = wrapper.find('[data-test="comment-form-input"]')
       const formButton = wrapper.find('[data-test="comment-form-button"]')
 
+  
+      inputs.at(0).simulate('change', { target: { value: 'Grillkorvs fest' } } )
+      inputs.at(1).simulate('change', { target: { value: 'Grattis korv till gänget' } } )
+      formButton.simulate('click')
+      const listItems = wrapper.find('.commentList .commentItem')
+      expect(listItems.length).toBe(3)
+    })
+    it("creates new comment with authorComment class if auhtor", () => {
+      const wrapper = mount(<Provider store={store}> <App /> </Provider>)
+
+
+      const inputs = wrapper.find('[data-test="comment-form-input"]')
+      const formButton = wrapper.find('[data-test="comment-form-button"]')
+
       inputs.at(0).simulate('change', { target: { value: 'Grillkorvs fest' } } )
       inputs.at(1).simulate('change', { target: { value: 'Grattis korv till gänget' } } )
       formButton.simulate('click')
       const listItems = wrapper.find('.commentList .commentItem')
       expect(listItems.at(listItems.length-1).hasClass("authorComment")).toBe(true)
-      wrapper.unmount()
     })
     it("creates new comment with yourComment class", () => {
       const wrapper = mount(<Provider store={store}> <App /> </Provider>)

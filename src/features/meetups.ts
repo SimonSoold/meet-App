@@ -13,6 +13,10 @@ type PointPayload = {
 	point: Point,
 	id: string
 }
+type guestListPayload = {
+	userId: string,
+	id: string
+}
 
 type state = {
 	list: Array<Meetup>,
@@ -25,6 +29,7 @@ const addPoint = createAction<PointPayload>('add point')
 const changeIndex = createAction<number>("change index")
 const deleteMeetup = createAction<Meetup>("delete meetup")
 const editMeetup = createAction<Meetup>("edit meetup")
+const attendMeetup = createAction<guestListPayload>("attend to meetup")
 
 const initialState:state = {list:meetupList, index: 0}
 
@@ -35,6 +40,7 @@ const actions = {
 	changeIndex,
 	deleteMeetup,
 	editMeetup,
+	attendMeetup
 }
 
 const reducer = createReducer(initialState, (builder) => {
@@ -66,6 +72,18 @@ const reducer = createReducer(initialState, (builder) => {
 	.addCase(editMeetup, (state, action) => {
 		const index = state.list.findIndex(item => item.id === action.payload.id)
 		state.list[index] = action.payload
+	})
+	.addCase(attendMeetup, (state, action) => {
+		state.list.map(item => {
+			if (item.id === action.payload.id) {
+				if (item.guestList.includes(action.payload.userId)) {
+					item.guestList = item.guestList.filter(item => item !== action.payload.userId)
+				} else {
+					item.guestList.push(action.payload.userId)
+				}
+			}
+			return item
+		})
 	})
 	.addDefaultCase((state, action) => {})
 })

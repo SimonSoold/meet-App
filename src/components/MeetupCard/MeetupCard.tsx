@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 import { useDispatch } from 'react-redux'
 import { actions } from 'features/view'
+import { actions as meetupActions } from "features/meetups"
 
 import CommentForm from "../MeetupComment/CommentForm"
 import CommentList from "../MeetupComment/CommentList"
-import MeetupPoint from "../MeetupPoint/MeetupPoint"
+import MeetupPoint from "./MeetupPoint"
 
 import AppPanel from "models/AppPanel"
 
@@ -18,6 +19,7 @@ const MeetupCard = () => {
     const [point, setPoint] = useState<number>(0)
     let pointVote = null
     let comment = null
+    let attend = null
     const average = () => {
         let total = 0
         if (meetup.points.length > 0) {
@@ -42,6 +44,17 @@ const MeetupCard = () => {
     } else {
         comment = (<></>)
     }
+    if (user && meetup.guestList.includes(user.id)) {
+        attend = <button 
+        data-test="unAttend-button"
+        onClick={() => dispatch(meetupActions.attendMeetup({userId: user.id, id: meetup.id}))}
+        >unAttend</button>
+    } else if (user) {
+        attend = <button 
+        data-test="attend-button"
+        onClick={() => dispatch(meetupActions.attendMeetup({userId: user.id, id: meetup.id}))}
+        >attend</button>
+    }
     useEffect(() => {
         average()
     })
@@ -54,6 +67,7 @@ const MeetupCard = () => {
             <p>{meetup.date}</p>
             <p>{meetup.time}</p>
             <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
+            {attend}
             <p data-test="meetupCard-point">{point}/5 ({meetup.points.length} votes)</p>
             {pointVote}
             {comment}
