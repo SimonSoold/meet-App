@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 import { useDispatch } from 'react-redux'
@@ -18,8 +18,9 @@ const MeetupCard = () => {
     const user = useSelector((state: RootState) => state.users.user)
     const [point, setPoint] = useState<number>(0)
     let pointVote = null
-    let comment = null
+    let commentForm = null
     let attend = null
+    let editMeetup = null
     const average = () => {
         let total = 0
         if (meetup.points.length > 0) {
@@ -30,19 +31,21 @@ const MeetupCard = () => {
     }
     if (user && user.id !== meetup.organiserId) {
         pointVote = <MeetupPoint id={meetup.id}/>
+        editMeetup = null
     } else if (user && user.id === meetup.organiserId) {
-        pointVote = (            
+        pointVote = null
+        editMeetup = (
         <button
         data-test="meetupCard-edit-meetup"
         onClick={() => dispatch(actions.view(AppPanel.EDIT_MEETUP))}
         >
-            edit metup
+            edit
         </button>)
     }
     if (user) {
-        comment = <CommentForm id={meetup.id} />
+        commentForm = <CommentForm id={meetup.id} />
     } else {
-        comment = (<></>)
+        commentForm = null
     }
     if (user && meetup.guestList.includes(user.id)) {
         attend = <button 
@@ -59,20 +62,25 @@ const MeetupCard = () => {
         average()
     })
     return (
-        <article className="meetupCard">
-            <h3>{meetup.name}</h3>
-            <p>{meetup.description}</p>
-            <p>{meetup.genre}</p>
-            <p>{meetup.location}</p>
-            <p>{meetup.date}</p>
-            <p>{meetup.time}</p>
-            <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
-            {attend}
-            <p data-test="meetupCard-point">{point}/5 ({meetup.points.length} votes)</p>
-            {pointVote}
-            {comment}
+        <div className="meetupCard">
+            <article>
+                <h3>{meetup.name}</h3>
+                <p>{meetup.description}</p>
+                <p>{meetup.genre}</p>
+                <p>{meetup.location}</p>
+                <p>{meetup.date}</p>
+                <p>{meetup.time}</p>
+                <p>{meetup.maxGuests - meetup.guestList.length} seats left</p>
+                <p data-test="meetupCard-point">{point}/5 ({meetup.points.length} votes)</p>
+            </article>
+            <div className="meetupButtons">
+                {pointVote}
+                {editMeetup}
+                {attend}
+            </div>
+            {commentForm}
             <CommentList commentList={meetup.comments} />
-        </article>
+        </div>
     )
 }
 

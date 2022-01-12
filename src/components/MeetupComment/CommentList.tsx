@@ -1,5 +1,3 @@
-import {useEffect} from "react"
-
 import CommentItem from "./CommentItem"
 
 import Comment from "models/Comment"
@@ -9,8 +7,6 @@ type Props = {
 }
 
 const CommentList = ({commentList}: Props) => {
-    useEffect(() => {
-    });
     return (
         <ul className="commentList">
             {

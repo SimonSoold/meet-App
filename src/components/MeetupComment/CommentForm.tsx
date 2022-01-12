@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react"
 import { useDispatch } from 'react-redux'
 import { actions } from 'features/meetups'
 
@@ -20,28 +20,30 @@ const CommentForm = ({id}: Props) => {
     }
     return (
         <div className="commentForm">
-            <label>
-                name
-                <input 
-                type="text"
-                data-test="comment-form-input"
-                value={name}
-                onChange={(
-                ev: React.ChangeEvent<HTMLInputElement>,
-                ) => setName(ev.target.value)}
-                />
-            </label>
-            <label>
-                Description
-                <input 
-                type="text"
-                data-test="comment-form-input"
-                value={description}
-                onChange={(
-                ev: React.ChangeEvent<HTMLInputElement>,
-                ) => setDescription(ev.target.value)}
-                />
-            </label>
+            <div className="inputContainer">
+                <label>
+                    name
+                    <input 
+                    type="text"
+                    data-test="comment-form-input"
+                    value={name}
+                    onChange={(
+                    ev: React.ChangeEvent<HTMLInputElement>,
+                    ) => setName(ev.target.value)}
+                    />
+                </label>
+                <label>
+                    Description
+                    <input 
+                    type="text"
+                    data-test="comment-form-input"
+                    value={description}
+                    onChange={(
+                    ev: React.ChangeEvent<HTMLInputElement>,
+                    ) => setDescription(ev.target.value)}
+                    />
+                </label>
+            </div>
             <button 
             type="submit"
             onClick={newComment}

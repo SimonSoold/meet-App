@@ -18,14 +18,14 @@ const MeetupListItem = ({meetup, view}:Props) => {
     }
     return (
         <li className="meetupListItem">
-            <h4>{meetup.name}</h4>
-            <p>{meetup.date}</p>
-            <p>{meetup.time}</p>
             <button 
             data-test="meetup-item-button"
             onClick={viewItem}
-            >read more
+            >
+            {meetup.name}
             </button>
+            <p>{meetup.date}</p>
+            <p>{meetup.time}</p>
         </li>
     )
 }
