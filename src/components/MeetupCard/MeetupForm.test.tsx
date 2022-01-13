@@ -33,7 +33,7 @@ describe("MeetupForm", () => {
       inputs.at(1).simulate('change', { target: { value: 'Grattis korv till gänget' } } )
       inputs.at(2).simulate('change', { target: { value: 'Mat' } } )
       inputs.at(3).simulate('change', { target: { value: 'Köpenhamn' } } )
-      inputs.at(4).simulate('change', { target: { value: '24 februari' } } )
+      inputs.at(4).simulate('change', { target: { value: '2022-09-07' } } )
       inputs.at(5).simulate('change', { target: { value: '18:00' } } )
       inputs.at(6).simulate('change', { target: { value: 2 } } )
       formButton.simulate('click')

@@ -99,11 +99,14 @@ main {
 .meetupCard > article > * {
   margin: 0.2rem;
 }
-.meetupCard, .meetupForm, .meetupEdit {
+.meetupCard, .meetupForm {
   height: 100%;
   width: 100%;
   padding: 0.8rem;
   box-sizing: border-box;
+}
+.meetupForm > button {
+  margin-right: 0.8rem;
 }
 .meetupCard {
   display: grid;

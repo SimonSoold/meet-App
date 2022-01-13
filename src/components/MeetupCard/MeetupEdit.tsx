@@ -29,7 +29,7 @@ const MeetupEdit = () => {
         dispatch(viewActions.view(AppPanel.VIEW_MEETUP))
     }
     return (
-        <div className="meetupEdit">
+        <div className="meetupForm meetupEdit">
             <label>
                 name
                 <input 
