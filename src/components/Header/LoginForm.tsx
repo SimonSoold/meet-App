@@ -25,7 +25,7 @@ const Login = () => {
             <label>
                 password
                 <input 
-                type="text"
+                type="password"
                 data-test="login-form-input"
                 value={password}
                 onChange={(

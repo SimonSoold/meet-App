@@ -77,7 +77,7 @@ const MeetupEdit = () => {
             <label>
                 Date
                 <input 
-                type="text"
+                type="date"
                 data-test="meetup-edit-input"
                 value={date}
                 onChange={(
@@ -88,7 +88,7 @@ const MeetupEdit = () => {
             <label>
                 Time
                 <input 
-                type="text"
+                type="time"
                 data-test="meetup-edit-input"
                 value={time}
                 onChange={(

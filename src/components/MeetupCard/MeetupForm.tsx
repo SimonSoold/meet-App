@@ -68,7 +68,7 @@ const MeetupForm = () => {
             <label>
                 Date
                 <input 
-                type="text"
+                type="date"
                 data-test="meetup-form-input"
                 value={date}
                 onChange={(
@@ -79,7 +79,7 @@ const MeetupForm = () => {
             <label>
                 Time
                 <input 
-                type="text"
+                type="time"
                 data-test="meetup-form-input"
                 value={time}
                 onChange={(
