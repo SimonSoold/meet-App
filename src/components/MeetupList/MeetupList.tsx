@@ -12,7 +12,7 @@ const MeetupList = () => {
 	const filteredData = meetups.filter(meetup => meetup.name.toLowerCase().includes(searchString.toLowerCase()))
     return (
         <ul className="meetupList">
-            {filteredData.map((item, index) => <MeetupListItem key={item.id} meetup={item} view={() => dispatch(actions.changeIndex(index))}/>)}
+            {filteredData.sort((a: { date: string; },b: { date: string; }) => (a.date < b.date) ? -1 : ((b.date < a.date) ? 1 : 0)).map((item, index) => <MeetupListItem key={item.id} meetup={item} view={() => dispatch(actions.changeIndex(index))}/>)}
         </ul>
     )
 }
