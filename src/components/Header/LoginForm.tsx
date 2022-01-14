@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <>
             <label>
-                name
+                Name
                 <input 
                 type="text"
                 data-test="login-form-input"
@@ -23,7 +23,7 @@ const Login = () => {
                 />
             </label>
             <label>
-                password
+                Password
                 <input 
                 type="password"
                 data-test="login-form-input"
@@ -37,7 +37,7 @@ const Login = () => {
             data-test="login-form-button"
             onClick={() => login()}
             >
-                login    
+                Login    
             </button>
         </>
     )

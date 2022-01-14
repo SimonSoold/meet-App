@@ -22,7 +22,7 @@ const MeetupForm = () => {
     return (
         <div className="meetupForm">
             <label>
-                name
+                Name
                 <input 
                 type="text"
                 data-test="meetup-form-input"
@@ -102,7 +102,7 @@ const MeetupForm = () => {
             onClick={newMeetup}
             data-test="meetup-form-button"
             >
-                Create Event
+                Create event
             </button>
         </div>
     )

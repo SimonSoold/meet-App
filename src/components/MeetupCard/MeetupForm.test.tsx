@@ -20,7 +20,7 @@ describe("MeetupForm", () => {
       inputs.at(1).simulate('change', { target: { value: 'bananKorv2' } } )
       button.simulate('click')
       const headerButton = wrapper.find('[data-test="header-create-meetup"]')
-      expect(headerButton.text()).toBe('create meetup')
+      expect(headerButton.text()).toBe('Create meetup')
     })
     it("creates new meetup on click", () => {
       const wrapper = mount(<Provider store={store}> <App /> </Provider>)

@@ -19,7 +19,7 @@ const MeetupPoint = ({id}: Props) => {
             data-test="meetup-vote-point-button"
             onClick={() => dispatch(actions.addPoint({id, point:{point, userId: "test2"}}))}
             >
-                vote
+                Vote
             </button>
             <div className="pointButtons">
                 {

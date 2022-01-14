@@ -22,7 +22,7 @@ const CommentForm = ({id}: Props) => {
         <div className="commentForm">
             <div className="inputContainer">
                 <label>
-                    name
+                    Name
                     <input 
                     type="text"
                     data-test="comment-form-input"

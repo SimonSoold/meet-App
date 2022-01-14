@@ -20,7 +20,7 @@ const Header = () => {
             data-test="header-create-meetup"
             onClick={() => dispatch(actions.view(AppPanel.NEW_MEETUP))}
             >
-                create meetup
+                Create meetup
             </button>
         </>
         )

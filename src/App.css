@@ -84,6 +84,7 @@ main {
 }
 .meetupListItem > p {
   width: 33%;
+  text-align: center;
 }
 .meetupListItem > p:last-of-type {
   text-align: right;
@@ -219,10 +220,10 @@ label {
 @media only screen and (max-width: 1000px) {
   .App {
     height: auto;
+    overflow-y: scroll;
   }
   main {
     flex-direction: column-reverse;
-    overflow-y: scroll;
     height: auto;
     min-height: auto;
   }
@@ -231,9 +232,8 @@ label {
   }
   .meetupContainer {
     width: 100%;
-    height: auto;
   }
-  .meetupCard, .meetupForm, .meetupEdit {
+  .meetupCard, .meetupForm {
     height: auto;
   }
   .meetupCard > article {
@@ -250,6 +250,6 @@ label {
   }
   .meetupCard > .commentList {
     grid-column: 1/end;
-    grid-row: 10/end;
+    grid-row: 10/13;
   }
 }

@@ -31,7 +31,7 @@ const MeetupEdit = () => {
     return (
         <div className="meetupForm meetupEdit">
             <label>
-                name
+                Name
                 <input 
                 type="text"
                 data-test="meetup-edit-input"

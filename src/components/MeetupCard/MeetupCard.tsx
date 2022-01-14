@@ -39,7 +39,7 @@ const MeetupCard = () => {
         data-test="meetupCard-edit-meetup"
         onClick={() => dispatch(actions.view(AppPanel.EDIT_MEETUP))}
         >
-            edit
+            Edit
         </button>)
     }
     if (user) {
@@ -51,12 +51,12 @@ const MeetupCard = () => {
         attend = <button 
         data-test="unAttend-button"
         onClick={() => dispatch(meetupActions.attendMeetup({userId: user.id, id: meetup.id}))}
-        >unAttend</button>
+        >Unattend</button>
     } else if (user) {
         attend = <button 
         data-test="attend-button"
         onClick={() => dispatch(meetupActions.attendMeetup({userId: user.id, id: meetup.id}))}
-        >attend</button>
+        >Attend</button>
     }
     useEffect(() => {
         average()

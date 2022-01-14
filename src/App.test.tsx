@@ -18,14 +18,14 @@ describe("App", () => {
     inputs.at(1).simulate('change', { target: { value: 'bananKorv2' } } )
     button.simulate('click')
     const headerButton = wrapper.find('[data-test="header-create-meetup"]')
-    expect(headerButton.text()).toBe('create meetup')
+    expect(headerButton.text()).toBe('Create meetup')
   })
   it("navigates to MeetupForm onClick", () => {
     const wrapper = mount(<Provider store={store}> <App /> </Provider>)
     const button = wrapper.find('[data-test="header-create-meetup"]')
     button.simulate('click')
     const formButton = wrapper.find('[data-test="meetup-form-button"]').at(0)
-    expect(formButton.text()).toBe('Create Event')
+    expect(formButton.text()).toBe('Create event')
   })
   it("navigates to Meetup and changes index for meetupCard onClick", () => {
     const wrapper = mount(<Provider store={store}> <App /> </Provider>)

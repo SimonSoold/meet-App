@@ -33,9 +33,6 @@ function App() {
         </div>
         <MeetupList />
       </main>
-      <footer>
-
-      </footer>
     </div>
   );
 }
