@@ -4,7 +4,7 @@ import { store } from 'store'
 
 import App from "App"
 
-describe("MeetUpPoint", () => {
+describe("MeetupPoint", () => {
     it("changes point on click", () => {
       const wrapper = mount(<Provider store={store}> <App /> </Provider>)
       const inputs = wrapper.find('[data-test="login-form-input"]')

@@ -6,7 +6,7 @@ import { store } from 'store'
 import MeetupCard from "./MeetupCard"
 import App from "App"
 
-describe("MeetUpCard", () => {
+describe("MeetupCard", () => {
     it("renders h3 in MeetupCard without errors (smoke test", () => {
       render(<Provider store={store}> <MeetupCard /> </Provider>)
       const h3 = screen.getByText(/Grillkorvsfest/i);

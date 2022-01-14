@@ -4,7 +4,7 @@ import { store } from 'store'
 
 import MeetupList from "./MeetupList"
 
-describe("MeetUpList", () => {
+describe("MeetupList", () => {
     it("renders h3 in MeetupCard in MeetUpList without errors (smoke test)", () => {
       render(<Provider store={store}> <MeetupList /> </Provider>)
       const button = screen.getByText(/Grillkorvsfest/i);

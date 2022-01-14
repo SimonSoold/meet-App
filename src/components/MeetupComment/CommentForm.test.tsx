@@ -8,7 +8,7 @@ import App from "App"
 
 import {meetupList} from "testData"
 
-describe("MeetupForm", () => {
+describe("CommentForm", () => {
     it("renders MeetupForm without errors (smoke test)", () => {
       render(<Provider store={store}> <CommentForm id={meetupList[0].name}/> </Provider>)
       const button = screen.getByText(/Comment/i);
