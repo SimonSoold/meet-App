@@ -1,5 +1,5 @@
-import Meetup from "./models/Meetup"
-import {UserData} from "./models/User"
+import Meetup from "./models/meetup"
+import {UserData} from "./models/user"
 
 export const getUsers = () => {
     return userList.map(user => {

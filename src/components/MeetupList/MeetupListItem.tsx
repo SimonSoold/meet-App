@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import AppPanel from "models/AppPanel"
 
-import Meetup from "models/Meetup"
+import Meetup from "models/meetup"
 
 type Props = {
     meetup: Meetup

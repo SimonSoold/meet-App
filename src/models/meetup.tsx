@@ -1,5 +1,5 @@
-import Comment from "./Comment"
-import Point from "./Point"
+import Comment from "./comment"
+import Point from "./point"
 
 interface Meetup {
     name: string

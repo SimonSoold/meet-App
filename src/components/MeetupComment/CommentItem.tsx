@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { RootState } from 'store'
 
-import Comment from "models/Comment"
+import Comment from "models/comment"
 
 type Props = {
     comment: Comment 

@@ -1,6 +1,6 @@
 import CommentItem from "./CommentItem"
 
-import Comment from "models/Comment"
+import Comment from "models/comment"
 
 type Props = {
     commentList: Array<Comment>

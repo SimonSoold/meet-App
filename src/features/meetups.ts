@@ -1,8 +1,8 @@
 import { createReducer, createAction } from '@reduxjs/toolkit'
 
-import Meetup from '../models/Meetup'
-import Comment from "../models/Comment"
-import Point from "../models/Point"
+import Meetup from '../models/meetup'
+import Comment from "../models/comment"
+import Point from "../models/point"
 import {meetupList} from "../testData"
 
 type CommentPayload = {

@@ -4,7 +4,7 @@ import { RootState } from 'store'
 import { useDispatch } from 'react-redux'
 import { actions } from 'features/meetups'
 import { actions as viewActions } from 'features/view'
-import Meetup from "models/Meetup"
+import Meetup from "models/meetup"
 import AppPanel from "models/AppPanel"
 
 const MeetupEdit = () => {

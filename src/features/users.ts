@@ -1,6 +1,6 @@
 import { createReducer, createAction } from '@reduxjs/toolkit'
 import { authUser, getUsers } from "../testData"
-import {User} from "../models/User"
+import {User} from "../models/user"
 
 type state = {
     user: User | null,
